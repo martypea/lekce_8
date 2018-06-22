@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="{{ asset('favicon.ico') }}">
+
+  <title>{%block title%}{%endblock%}</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/specific.css') }}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{{ asset('jumbotron.css') }}" rel="stylesheet">
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Programmers</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item {%if app.request.attributes.get('_route') == 'homepage'%}active{%endif%}">
+          <a class="nav-link" href="{{ path('homepage') }}">Home</a>
+        </li>
+        <li class="nav-item {%if app.request.attributes.get('_route') == 'about'%}active{%endif%}">
+          <a class="nav-link" href="{{ path('about') }}">About</a>
+        </li>
+        <li class="nav-item {%if app.request.attributes.get('_route') == 'contact'%}active{%endif%}">
+          <a class="nav-link" href="{{ path('contact') }}">Contact</a>
+        </li>
+        <li class="nav-item {%if app.request.attributes.get('_route') == 'user_index'%}active{%endif%}">
+          <a class="nav-link" href="{{ path('user_index') }}">Users</a>
+        </li>
+        <li class="nav-item {%if app.request.attributes.get('_route') == 'article_index'%}active{%endif%}">
+          <a class="nav-link" href="{{ path('article_index') }}">Articles</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main role="main">
+      
+     {% block body %} {% endblock %}
+      
+  </main>
+
+  <footer class="container">
+    <p>&copy; Company 2017-2018</p>
+  </footer>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script>
+    window.jQuery || document.write('<script src=" {{ asset('js/jquery-slim.min.js')}}"><\/script>')
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="{{ asset('js/popper.min.js')}}"></script>
+  <script src="{{ asset('js/bootstrap.min.js')}}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+  <script>{% block javascript %}{% endblock %}</script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Article{% endblock %}
+
+{% block body %}
+    <h1>Create new Article</h1>
+
+    {{ include('article/_form.html.twig') }}
+
+    <a href="{{ path('article_index') }}">back to list</a>
+{% endblock %}
+
+{% block javascript %}
+
+$(document).ready(function() {
+    $('#article_category').select2();
+    $('#article_labels').select2();
+});
+
+{% endblock %}
